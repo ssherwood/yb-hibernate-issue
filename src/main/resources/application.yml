@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    open-in-view: false
+#    properties:
+#      hibernate:
+#        dialect: io.yugabyte.demos.ybhi.hibernate.YugabyteDBDialect
+  datasource:
+    #url: jdbc:postgresql://localhost:5433/yugabyte
+    url: jdbc:yugabytedb://localhost:5433/yugabyte?load-balance=true
+    driver-class-name: com.yugabyte.Driver
+    username: ${YB_USERNAME:yugabyte}
+    password: ${YB_PASSWORD:}
+
+logging.level:
+  com.zaxxer.hikari.HikariPool: ${HIKARI_LOG_LEVEL:INFO}
+  com.zaxxer.hikari.HikariConfig: ${HIKARI_CONFIG_LOG_LEVEL:DEBUG}
